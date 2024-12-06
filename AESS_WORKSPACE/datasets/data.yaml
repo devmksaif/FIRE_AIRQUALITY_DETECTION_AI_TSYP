@@ -1,0 +1,13 @@
+train: ./train/images
+val: ./valid/images
+ 
+
+nc: 1
+names: ['fire']
+
+roboflow:
+  workspace: bairock
+  project: wildfire-satellite
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/bairock/wildfire-satellite/dataset/2
