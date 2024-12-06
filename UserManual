@@ -1,0 +1,73 @@
+# Wildfire and Air Quality Detection Application User Manual
+
+## Overview
+
+This application provides two main features:
+
+1. **Wildfire Detection** - Displays the latest fire detection using satellite imagery.
+2. **Air Quality Detection** - Displays the Air Quality Index (AQI) for various pollutants and provides real-time AQI updates.
+
+The application is designed to track fire occurrences and monitor air quality, offering real-time insights and predictions to users.
+
+---
+
+## Features
+
+### 1. **Wildfire Tab**: 
+- **Description**: This tab shows the latest fire detection using satellite imagery. The AI model analyzes satellite images to detect fire incidents and provides real-time updates.
+- **How to Use**:
+  - Navigate to the **Wildfire Tab** in the app.
+  - You will see the most recent fire detection events, including information such as fire location, timestamp, and detection confidence.
+
+### 2. **Air Quality Tab**:
+- **Description**: This tab shows the average Air Quality Index (AQI) for the country and provides insights into various air pollutants.
+- **How to Use**:
+  - Navigate to the **Air Quality Tab** in the app.
+  - The **Average AQI** for the country will be displayed, providing a general view of air quality.
+  - Additionally, specific AQI values for the following pollutants are shown:
+    - **AQI_PM10**: Air Quality Index for PM10.
+    - **AQI_PM25**: Air Quality Index for PM2.5.
+    - **AQI_NO2**: Air Quality Index for NO2.
+    - **AQI_O3**: Air Quality Index for O3.
+    - **AQI_CO**: Air Quality Index for CO.
+    - **AQI_Max**: Maximum AQI value observed.
+
+### 3. **Location Tab**:
+- **Description**: This tab shows your current location and the corresponding AQI for the area.
+- **How to Use**:
+  - Navigate to the **Location Tab** in the app.
+  - Your current location is displayed on a map.
+  - The app fetches the real-time AQI for your location and provides details on the air quality based on various pollutants.
+
+---
+
+## AQI Definitions
+
+The Air Quality Index (AQI) is a numerical scale used to represent the quality of air in a specific area. The app monitors the following pollutants:
+
+- **PM10**: Particulate matter with a diameter of 10 micrometers or less.
+- **PM2.5**: Fine particulate matter with a diameter of 2.5 micrometers or less.
+- **NO2**: Nitrogen Dioxide, a gas that can irritate the respiratory system.
+- **CO**: Carbon Monoxide, a colorless, odorless gas that can be harmful at high concentrations.
+- **O3**: Ozone, which can irritate the respiratory system.
+- **AQI_Max**: The maximum AQI value for all monitored pollutants in the region.
+
+---
+
+## Application Workflow
+
+1. **Wildfire Detection**:
+   - The **satellite imagery detection** model is based on **YOLOv8 S**, which detects fire incidents in real-time using satellite images.
+   - Once a fire is detected, the data is sent to a **MongoDB database**, and the mobile application fetches the most recent detection data for display.
+
+2. **Air Quality Detection**:
+   - Air quality data is fetched using real-time monitoring from various sensors.
+   - The model for air quality prediction is trained using **TensorFlow**, based on the following inputs:
+     - **PM25**, **PM10**, **Temperature**, **NO2**, **CO**, **O3**
+   - The output provides AQI values for each pollutant and the maximum AQI observed.
+
+---
+
+## Conclusion
+
+This application helps users stay informed about wildfire incidents and monitor air quality. With real-time data updates and easy navigation, it ensures that users can make informed decisions about their health and safety.
